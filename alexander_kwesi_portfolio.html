@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexander Oluwaseun Kwesi — Teaching Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --clay: #c6512a;
+    --clay-light: #f5ede8;
+    --clay-mid: #e8a087;
+    --gold: #b8860b;
+    --cream: #faf8f4;
+    --warm-gray: #8a8680;
+    --border: rgba(26,26,24,0.12);
+    --section-gap: 5rem;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--warm-gray);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--clay); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 2.5rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--clay);
+    background: var(--clay-light);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900; line-height: 1.07;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--clay); }
+  .hero-sub {
+    font-size: 1.05rem; font-weight: 300; color: #555;
+    max-width: 440px; line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--clay); color: #fff;
+    padding: 0.85rem 1.8rem;
+    border-radius: 3rem;
+    font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .hero-cta:hover { background: #a8431f; transform: translateY(-1px); }
+  .hero-visual {
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem; position: relative;
+  }
+  .avatar-frame {
+    width: 340px; height: 400px;
+    background: linear-gradient(145deg, var(--clay-light), #e8ddd4);
+    border-radius: 60% 40% 60% 40% / 50% 50% 50% 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 3px solid rgba(198,81,42,0.15);
+  }
+  .avatar-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 900;
+    color: var(--clay); letter-spacing: -0.05em; opacity: 0.7;
+  }
+  .hero-stat-cards { position: absolute; display: flex; flex-direction: column; gap: 0.8rem; }
+  .hero-stat-cards.left { left: 0; }
+  .hero-stat-cards.right { right: 0; }
+  .stat-pill {
+    background: #fff; border-radius: 0.75rem;
+    padding: 0.6rem 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border: 0.5px solid var(--border); min-width: 130px;
+  }
+  .stat-pill .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--clay); display: block;
+  }
+  .stat-pill .lbl { font-size: 0.72rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* SECTIONS */
+  section { padding: var(--section-gap) 2.5rem; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--clay); margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;
+    color: var(--ink); margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+  .about-body { font-size: 1.05rem; color: #444; line-height: 1.85; }
+  .about-body p + p { margin-top: 1.2rem; }
+  .skills-block { display: flex; flex-direction: column; gap: 1.2rem; }
+  .skill-label { font-size: 0.82rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; display: flex; justify-content: space-between; }
+  .skill-label span { color: var(--warm-gray); font-weight: 400; }
+  .skill-bar { height: 5px; background: #e6e3dd; border-radius: 3px; overflow: hidden; }
+  .skill-fill { height: 100%; background: var(--clay); border-radius: 3px; }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-item { display: grid; grid-template-columns: 40px 1fr; gap: 1.5rem; padding-bottom: 3rem; position: relative; }
+  .timeline-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--clay-light); border: 2px solid var(--clay);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1; flex-shrink: 0; margin-top: 2px;
+  }
+  .timeline-dot svg { width: 12px; height: 12px; stroke: var(--clay); fill: none; stroke-width: 2.5; }
+  .timeline-card {
+    background: #fff; border: 0.5px solid var(--border);
+    border-radius: 12px; padding: 1.5rem 1.75rem;
+    transition: box-shadow 0.2s;
+  }
+  .timeline-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+  .tc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.5rem; }
+  .tc-role { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); }
+  .tc-date {
+    font-size: 0.75rem; font-weight: 500; color: var(--clay);
+    background: var(--clay-light); padding: 0.25rem 0.65rem;
+    border-radius: 2rem; white-space: nowrap; margin-left: 1rem;
+  }
+  .tc-org { font-size: 0.85rem; color: var(--warm-gray); font-weight: 500; margin-bottom: 1rem; }
+  .tc-points { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .tc-points li { font-size: 0.92rem; color: #555; display: flex; gap: 0.6rem; align-items: flex-start; }
+  .tc-points li::before { content: '→'; color: var(--clay); font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+
+  /* VIDEO */
+  .video-section-wrap { background: var(--ink); padding: var(--section-gap) 0; width: 100%; }
+  .video-section-inner { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+  .video-section-inner .section-label { color: var(--clay-mid); }
+  .video-section-inner .section-title { color: #fff; margin-bottom: 1rem; }
+  .video-desc { color: #aaa; font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 500px; }
+  .video-frame {
+    width: 100%; max-width: 800px; margin: 0 auto;
+    aspect-ratio: 16/9; background: #111;
+    border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.08);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.2rem; cursor: pointer;
+  }
+  .video-placeholder-icon {
+    width: 70px; height: 70px; background: rgba(198,81,42,0.2);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    border: 2px solid rgba(198,81,42,0.5); transition: background 0.2s;
+  }
+  .video-frame:hover .video-placeholder-icon { background: rgba(198,81,42,0.35); }
+  .video-placeholder-icon svg { width: 28px; height: 28px; fill: var(--clay); margin-left: 4px; }
+  .video-placeholder-text { color: #666; font-size: 0.9rem; text-align: center; max-width: 320px; line-height: 1.6; }
+  .video-placeholder-text strong { color: #aaa; display: block; margin-bottom: 0.35rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .video-input-area { display: none; margin-top: 1.5rem; align-items: center; gap: 0.5rem; }
+  .video-input-area input {
+    width: 100%; max-width: 600px; padding: 0.75rem 1rem;
+    border-radius: 8px; border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06); color: #fff;
+    font-size: 0.9rem; font-family: 'DM Sans', sans-serif; outline: none;
+  }
+  .video-input-area button {
+    padding: 0.75rem 1.4rem; background: var(--clay); color: #fff;
+    border: none; border-radius: 8px; font-size: 0.9rem;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+  }
+  .video-upload-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: transparent; border: 1px solid rgba(198,81,42,0.5);
+    color: var(--clay-mid); padding: 0.6rem 1.3rem; border-radius: 2rem;
+    font-size: 0.82rem; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .video-upload-btn:hover { background: rgba(198,81,42,0.1); border-color: var(--clay); }
+  .video-upload-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* CERTIFICATIONS */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+  .cert-card {
+    background: #fff; border: 0.5px solid var(--border); border-radius: 12px;
+    padding: 1.25rem 1.4rem; display: flex; gap: 1rem; align-items: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cert-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
+  .cert-icon {
+    width: 38px; height: 38px; flex-shrink: 0; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .cert-icon.orange { background: var(--clay-light); }
+  .cert-icon.blue { background: #e8f0fb; }
+  .cert-icon.green { background: #e7f5ec; }
+  .cert-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; line-height: 1.35; }
+  .cert-body { font-size: 0.78rem; color: var(--warm-gray); }
+
+  /* EDUCATION */
+  .full-width-section { background: #fff; padding: var(--section-gap) 0; width: 100%; }
+  .full-width-inner { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .edu-card {
+    border: 0.5px solid var(--border); border-radius: 12px;
+    padding: 1.75rem; background: #fff; border-left: 3px solid var(--clay);
+  }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+  .edu-inst { font-size: 0.9rem; color: var(--clay); font-weight: 500; margin-bottom: 0.25rem; }
+  .edu-date { font-size: 0.8rem; color: var(--warm-gray); margin-bottom: 1rem; }
+  .edu-detail { font-size: 0.88rem; color: #555; line-height: 1.65; }
+
+  /* CONTACT */
+  .contact-section { background: var(--clay-light); border-top: 1px solid rgba(198,81,42,0.15); padding: var(--section-gap) 2.5rem; }
+  .contact-inner { max-width: 1100px; margin: 0 auto; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .contact-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+  .contact-message { font-size: 1rem; color: #555; line-height: 1.8; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-item { display: flex; align-items: center; gap: 1rem; }
+  .contact-icon {
+    width: 42px; height: 42px; border-radius: 50%; background: #fff;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    border: 0.5px solid rgba(198,81,42,0.2);
+  }
+  .contact-icon svg { width: 18px; height: 18px; stroke: var(--clay); fill: none; stroke-width: 1.8; }
+  .contact-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); }
+  .contact-value { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
+
+  footer {
+    text-align: center; padding: 2rem;
+    font-size: 0.78rem; color: var(--warm-gray);
+    border-top: 0.5px solid var(--border); background: var(--cream);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text > * { animation: fadeInUp 0.7s ease both; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.2s; }
+  .hero-sub { animation-delay: 0.35s; }
+  .hero-cta { animation-delay: 0.5s; }
+  .avatar-frame { animation: fadeInUp 0.8s 0.3s ease both; }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+    .hero-visual { display: none; }
+    .about-grid, .contact-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.75rem; }
+    section { padding: 3rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">A. O. Kwesi</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#video">Showcase</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="background: linear-gradient(135deg, #f0ebe2 0%, var(--cream) 60%);">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Teaching Portfolio</span>
+      <h1>Educator &amp;<br><em>Code</em><br>Facilitator</h1>
+      <p class="hero-sub">Dedicated to empowering learners through technology, creative pedagogy, and inclusive classroom environments. Currently completing a TEFL Academy Diploma.</p>
+      <a href="#about" class="hero-cta">
+        Explore Portfolio
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stat-cards left">
+        <div class="stat-pill"><span class="num">MSc</span><span class="lbl">Computing & IS</span></div>
+        <div class="stat-pill"><span class="num">TEFL</span><span class="lbl">Diploma</span></div>
+      </div>
+      <div class="avatar-frame"><span class="avatar-initials">AOK</span></div>
+      <div class="hero-stat-cards right">
+        <div class="stat-pill"><span class="num">3+</span><span class="lbl">Languages Taught</span></div>
+        <div class="stat-pill"><span class="num">10+</span><span class="lbl">Certifications</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About Me</p>
+  <h2 class="section-title">Passionate educator<br>with a technical edge.</h2>
+  <div class="about-grid">
+    <div class="about-body">
+      <p>I am Alexander Oluwaseun Kwesi, an enthusiastic educator based in Warrington, Cheshire. My teaching philosophy centres on making complex subjects accessible, engaging, and relevant — whether I am guiding young scholars through Python fundamentals or supporting primary students in core subjects.</p>
+      <p>My dual background in computing (MSc from the University of South Wales) and hands-on classroom experience allows me to bridge the gap between technical instruction and effective pedagogy. I believe every learner has unique potential, and I am committed to creating environments where curiosity and confidence flourish.</p>
+      <p>Currently completing my TEFL Academy Diploma, I am expanding my reach to EFL contexts while continuing to develop resources for digital literacy and computational thinking.</p>
+    </div>
+    <div class="skills-block">
+      <p style="font-size:0.82rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em; color:var(--warm-gray); margin-bottom:0.5rem;">Core Competencies</p>
+      <div>
+        <div class="skill-label">Lesson Planning &amp; Delivery <span>Expert</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+      </div>
+      <div>
+        <div class="skill-label">Python &amp; JavaScript <span>Advanced</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div>
+        <div class="skill-label">Classroom Management <span>Advanced</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div>
+        <div class="skill-label">TEFL Methodology <span>Completing</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+      <div>
+        <div class="skill-label">Differentiation &amp; Inclusion <span>Proficient</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+      </div>
+      <div>
+        <div class="skill-label">Google UX Design <span>Certified</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div class="full-width-section" id="experience">
+  <div class="full-width-inner">
+    <p class="section-label">Teaching Experience</p>
+    <h2 class="section-title">Where I've made<br>an impact.</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="timeline-card">
+          <div class="tc-top">
+            <div class="tc-role">Code Facilitator</div>
+            <span class="tc-date">2025 – Present</span>
+          </div>
+          <div class="tc-org">GT Scholars</div>
+          <ul class="tc-points">
+            <li>Facilitated hands-on coding workshops, teaching programming fundamentals in Python, JavaScript, and web development to young scholars.</li>
+            <li>Designed interactive lesson plans promoting problem-solving, creativity, and computational thinking.</li>
+            <li>Mentored students in project-based learning, helping them build portfolios and prepare for future careers in technology.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="timeline-card">
+          <div class="tc-top">
+            <div class="tc-role">Volunteer Teacher</div>
+            <span class="tc-date">2011</span>
+          </div>
+          <div class="tc-org">Benchill Nursery and Primary School, Wythenshawe</div>
+          <ul class="tc-points">
+            <li>Assisted in delivering core subjects — mathematics and science — to primary school students.</li>
+            <li>Created inclusive learning environments that celebrated diversity and built student confidence.</li>
+            <li>Mentored individual learners, fostering curiosity and a love of academic discovery.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="timeline-card">
+          <div class="tc-top">
+            <div class="tc-role">Vice President</div>
+            <span class="tc-date">2012</span>
+          </div>
+          <div class="tc-org">NYSC — Nigerian Shippers' Council</div>
+          <ul class="tc-points">
+            <li>Served in a leadership capacity, developing communication, mentoring, and organisational skills that inform my teaching practice today.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO SHOWCASE -->
+<div class="video-section-wrap" id="video">
+  <div class="video-section-inner">
+    <p class="section-label">Teaching Showcase</p>
+    <h2 class="section-title" style="margin-bottom:0.75rem;">See me in action.</h2>
+    <p class="video-desc">Watch a recorded lesson, introduction, or classroom highlight reel. Paste a YouTube or Vimeo URL below to embed your video.</p>
+
+    <div class="video-frame" id="videoFrame">
+      <div class="video-placeholder-icon">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+      <div class="video-placeholder-text">
+        <strong>📹 Add Your Video Here</strong>
+        Paste a YouTube or Vimeo URL to embed a lesson recording, introduction, or teaching showcase.
+      </div>
+      <button class="video-upload-btn" onclick="showVideoInput()">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Add Video URL
+      </button>
+    </div>
+
+    <div class="video-input-area" id="videoInputArea">
+      <input id="videoUrl" type="text" placeholder="Paste YouTube or Vimeo URL…">
+      <button onclick="embedVideo()">Embed</button>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <p class="section-label">Certifications &amp; Awards</p>
+  <h2 class="section-title">Continuous professional<br>development.</h2>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon orange">🎓</div>
+      <div>
+        <div class="cert-title">TEFL Academy Certification (Diploma)</div>
+        <div class="cert-body">Teaching English as a Foreign Language — Completed</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon blue">🎨</div>
+      <div>
+        <div class="cert-title">Google UX Design Certificate</div>
+        <div class="cert-body">Coursera — January 2024</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon green">🤖</div>
+      <div>
+        <div class="cert-title">Physical Computing with Raspberry Pi &amp; Python</div>
+        <div class="cert-body">CPD STEM — edX / Future Learn / NCCE</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon orange">📐</div>
+      <div>
+        <div class="cert-title">Algorithms, Programming &amp; Data in CS</div>
+        <div class="cert-body">National Centre for Computing Education</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon blue">🔐</div>
+      <div>
+        <div class="cert-title">Introduction to Cryptography</div>
+        <div class="cert-body">University of Leeds</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon green">🏫</div>
+      <div>
+        <div class="cert-title">Adapting Computing Curriculum for Mixed-Year Classes</div>
+        <div class="cert-body">CPD STEM Certification</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon orange">🥉</div>
+      <div>
+        <div class="cert-title">Bronze Certificate — Course Representative</div>
+        <div class="cert-body">University of South Wales — January 2024</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon blue">🏆</div>
+      <div>
+        <div class="cert-title">Acknowledgement Award</div>
+        <div class="cert-body">Marks &amp; Spencer — September 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<div class="full-width-section" id="education">
+  <div class="full-width-inner">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic foundations.</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">MSc Computing and Information Systems</div>
+        <div class="edu-inst">University of South Wales, Pontypridd</div>
+        <div class="edu-date">February 2023 – July 2024</div>
+        <div class="edu-detail">Thesis: Developed a web-based recommender system using Agile methodologies. Coursework included designing inventory systems with Python, Flask, and SQLAlchemy.</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">BSc Computer Studies</div>
+        <div class="edu-inst">University of Wolverhampton</div>
+        <div class="edu-date">Undergraduate</div>
+        <div class="edu-detail">Foundational degree in computer science, providing a strong grounding in programming, systems analysis, and information technology principles.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label">Get In Touch</p>
+        <h2 class="contact-title">Let's connect<br>and collaborate.</h2>
+        <p class="contact-message">Whether you are a school, language academy, EdTech organisation, or fellow educator, I would love to hear from you. I am open to teaching roles, mentoring opportunities, and collaborative projects.</p>
+      </div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">seankwesi24@googlemail.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.29 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">+44 7342 622 033</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Warrington, Cheshire, WA4 2NG</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value"><a href="#" style="color:var(--clay); text-decoration:none;">View Profile</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Alexander Oluwaseun Kwesi · Teaching Portfolio · References available on request</p>
+</footer>
+
+<script>
+  function showVideoInput() {
+    const area = document.getElementById('videoInputArea');
+    area.style.display = area.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function embedVideo() {
+    const url = document.getElementById('videoUrl').value.trim();
+    if (!url) return;
+    let embedUrl = url;
+    const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/);
+    if (ytMatch) embedUrl = 'https://www.youtube.com/embed/' + ytMatch[1];
+    const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+    if (vimeoMatch) embedUrl = 'https://player.vimeo.com/video/' + vimeoMatch[1];
+    const frame = document.getElementById('videoFrame');
+    frame.innerHTML = '<iframe src="' + embedUrl + '" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="border-radius:10px;"></iframe>';
+    document.getElementById('videoInputArea').style.display = 'none';
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY + 120;
+    document.querySelectorAll('[id]').forEach(sec => {
+      if (y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight) {
+        navLinks.forEach(l => l.style.color = '');
+        const active = document.querySelector('.nav-links a[href="#' + sec.id + '"]');
+        if (active) active.style.color = 'var(--clay)';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
